@@ -1,10 +1,8 @@
 import '../styles/style.css';
 import { initSphere } from './three/sphere.js';
 
-// Sélection de l’élément heure
 const heureEl = document.querySelector('.heure-actuelle');
 
-// Fonction pour mettre à jour l’heure
 function mettreAJourHeure() {
   const maintenant = new Date();
   const heures = String(maintenant.getHours()).padStart(2, '0');
@@ -13,10 +11,8 @@ function mettreAJourHeure() {
   heureEl.textContent = `${heures}:${minutes}:${secondes}`;
 }
 
-// Lancement immédiat et mise à jour chaque seconde
 mettreAJourHeure();
 setInterval(mettreAJourHeure, 1000);
 
-// Initialisation de la sphère Three.js
 initSphere();
 

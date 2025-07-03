@@ -1,4 +1,3 @@
-/* Polices */
 @font-face {
   font-family: 'font-texte';
   src: url('/src/assets/fonts/ppneuemontreal-book.woff') format('woff');
@@ -13,26 +12,33 @@
   font-style: normal;
 }
 
-/* Pas de scroll global */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+/* Mode clair */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
 html, body {
   height: 100vh;
   overflow: hidden;
 }
 
-/* Reset global */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
-/* Typo principale */
 body {
   font-family: 'font-texte', sans-serif;
 }
 
-/* Barre de navigation */
+/* Navbar */
 .barre-navigation {
   display: flex;
   justify-content: space-between;
@@ -40,14 +46,13 @@ body {
   padding: 0.5rem 1rem;
 }
 
-/* Texte navbar */
 .heure-actuelle,
 .nom,
 .portfolio {
   font-size: 1rem;
 }
 
-/* Tablettes (>=600px) */
+/* Navbar desktop */
 @media (min-width: 600px) {
   .barre-navigation {
     padding: 1rem 2rem;
@@ -59,7 +64,6 @@ body {
   }
 }
 
-/* Desktop (>=1024px) */
 @media (min-width: 1024px) {
   .barre-navigation {
     padding: 1rem 4rem;
@@ -70,15 +74,16 @@ body {
     font-size: 1.5rem;
   }
 }
-/* Conteneur principal (sphère + liens) */
+
+/* Conteneur principal */
 #app {
   position: relative;
-  margin-top: 3rem; /* hauteur de la navbar */
+  margin-top: 3rem;
   height: calc(100vh - 3rem);
-  overflow: hidden;  /* on recadre tout à l’intérieur */
+  overflow: hidden;
 }
 
-/* Liens verticaux, positionnés à droite */
+/* Liens verticaux */
 .liens-vertical {
   position: absolute;
   top: 40%;
@@ -89,9 +94,8 @@ body {
   gap: 2rem;
 }
 
-/* Style des liens */
 .lien {
-  color: black;
+  color: var(--text-color);
   text-decoration: none;
   font-family: 'font-titre', sans-serif;
   font-weight: 500;
@@ -109,16 +113,16 @@ body {
 
 .liens-vertical .lien:hover {
   transform: scale(1.2);
+  filter: none;
 }
 
+/* Mobile (<600px) */
 @media (max-width: 599px) {
   .liens-vertical {
     position: absolute;
-    top: calc(100vw + -5rem); /* un peu plus haut */
+    top: calc(100vw + 0.5rem);
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
     align-items: center;
     gap: 3rem;
     z-index: 1;
@@ -126,6 +130,27 @@ body {
 
   .lien {
     font-size: clamp(2.5rem, 8vw, 6rem);
-    white-space: nowrap; /* empêche le wrapping */
+    white-space: nowrap;
+  }
+}
+
+/* Mode sombre */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  
+  .barre-navigation,
+  .lien,
+  .nom,
+  .portfolio,
+  .heure-actuelle {
+    color: var(--text-color);
   }
 }

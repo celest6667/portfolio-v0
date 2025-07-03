@@ -188,10 +188,12 @@ const mat = new THREE.ShaderMaterial({
   );
   scene.add(sphere);
 
-  // Mouse down/up sur la sphère
-  renderer.domElement.addEventListener('mousedown', e => {
-    mouse.x = (e.clientX / window.innerWidth)  * 2 - 1;
-    mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+  const canvas = renderer.domElement;
+  canvas.addEventListener('mousedown', e => {
+    const rect = canvas.getBoundingClientRect();
+    // calcul en coordonnées normalisées X/Y de la souris dans le canvas
+    mouse.x = ((e.clientX - rect.left) / rect.width)  * 2 - 1;
+    mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
     raycaster.setFromCamera(mouse, camera);
     if (raycaster.intersectObject(sphere).length) isPressed = true;
   });
