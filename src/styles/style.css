@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'font-texte';
+    src: url('/src/assets/fonts/ppneuemontreal-book.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'font-titre';
+    src: url('/src/assets/fonts/ppneuemontreal-medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  h1{
+    font-family: 'font-texte';
+  }
