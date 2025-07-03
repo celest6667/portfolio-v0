@@ -1,4 +1,5 @@
 import '../styles/style.css';
+import { initSphere } from './three/sphere.js';
 
 // Sélection de l’élément heure
 const heureEl = document.querySelector('.heure-actuelle');
@@ -15,3 +16,7 @@ function mettreAJourHeure() {
 // Lancement immédiat et mise à jour chaque seconde
 mettreAJourHeure();
 setInterval(mettreAJourHeure, 1000);
+
+// Initialisation de la sphère Three.js
+initSphere();
+

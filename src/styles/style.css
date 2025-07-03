@@ -8,9 +8,15 @@
 
 @font-face {
   font-family: 'font-titre';
-  src: url('/src/assets/fonts/ppneuemontreal-medium.woff') format('woff');
+  src: url('/src/assets/fonts/ppneuemontreal-bold.woff') format('woff');
   font-weight: 500;
   font-style: normal;
+}
+
+/* Pas de scroll global */
+html, body {
+  height: 100vh;
+  overflow: hidden;
 }
 
 /* Reset global */
@@ -19,6 +25,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 
 /* Typo principale */
 body {
@@ -61,5 +68,64 @@ body {
   .nom,
   .portfolio {
     font-size: 1.5rem;
+  }
+}
+/* Conteneur principal (sphère + liens) */
+#app {
+  position: relative;
+  margin-top: 3rem; /* hauteur de la navbar */
+  height: calc(100vh - 3rem);
+  overflow: hidden;  /* on recadre tout à l’intérieur */
+}
+
+/* Liens verticaux, positionnés à droite */
+.liens-vertical {
+  position: absolute;
+  top: 40%;
+  left: calc(45% + 5rem);
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Style des liens */
+.lien {
+  color: black;
+  text-decoration: none;
+  font-family: 'font-titre', sans-serif;
+  font-weight: 500;
+  font-size: clamp(3rem, 8vw, 12rem);
+  text-align: left;
+}
+
+.liens-vertical .lien {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.liens-vertical:hover .lien:not(:hover) {
+  transform: scale(0.8);
+}
+
+.liens-vertical .lien:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 599px) {
+  .liens-vertical {
+    position: absolute;
+    top: calc(100vw + -5rem); /* un peu plus haut */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    z-index: 1;
+  }
+
+  .lien {
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    white-space: nowrap; /* empêche le wrapping */
   }
 }
