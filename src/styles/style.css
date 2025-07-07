@@ -7,7 +7,7 @@
 
 @font-face {
   font-family: 'font-titre';
-  src: url('/src/assets/fonts/ppneuemontreal-bold.woff') format('woff');
+  src: url('/src/assets/fonts/ppneuemontreal-semibolditalic.woff') format('woff');
   font-weight: 500;
   font-style: normal;
 }
@@ -37,6 +37,8 @@ html, body {
 body {
   font-family: 'font-texte', sans-serif;
 }
+
+/*Page d'accueil */
 
 /* Navbar */
 .barre-navigation {
@@ -154,3 +156,5 @@ body {
     color: var(--text-color);
   }
 }
+
+
