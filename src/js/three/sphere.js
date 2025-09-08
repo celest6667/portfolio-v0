@@ -21,18 +21,23 @@ export function initSphere() {
   );
   camera.position.z = 3;
 
-  // Renderer — responsive mobile-first
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  renderer.setClearColor(0x000000, 0);
-  renderer.setPixelRatio(devicePixelRatio);
-  renderer.setSize(canvasWidth, canvasHeight);
-  renderer.domElement.style.position  = 'absolute';
-  renderer.domElement.style.top       = isMobile ? `${navHeightPx}px` : '0';
-  renderer.domElement.style.left      = isMobile ? '50%'        : '0';
-  renderer.domElement.style.transform = isMobile ? 'translateX(-50%)' : 'none';
-  renderer.domElement.style.width     = isMobile ? '100%'       : '40%';
-  renderer.domElement.style.height    = isMobile ? 'auto'       : '100%';
-  document.body.appendChild(renderer.domElement);
+// Renderer — responsive mobile-first
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setClearColor(0x000000, 0);
+renderer.setPixelRatio(devicePixelRatio);
+renderer.setSize(canvasWidth, canvasHeight);
+
+// 🔴 On force le centrage
+renderer.domElement.style.position = 'absolute';
+renderer.domElement.style.top = '50%';
+renderer.domElement.style.left = '50%';
+renderer.domElement.style.transform = 'translate(-50%, -50%)';
+
+// taille responsive (à ajuster selon ton goût)
+renderer.domElement.style.width = isMobile ? '90vw' : '40vw';
+renderer.domElement.style.height = 'auto';
+
+document.getElementById("app").appendChild(renderer.domElement);
 
   // Lumières
   const lightDir = new THREE.Vector3(1, 1, 1).normalize();
@@ -183,7 +188,7 @@ const mat = new THREE.ShaderMaterial({
   
  // Création de la sphère
  const sphere = new THREE.Mesh(
-    new THREE.SphereGeometry(1, 256, 256),
+    new THREE.SphereGeometry(1.1, 128, 128),
     mat
   );
   scene.add(sphere);
@@ -230,10 +235,11 @@ const mat = new THREE.ShaderMaterial({
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
     renderer.setSize(w, h);
-    renderer.domElement.style.top       = isM ? `${navHeightPx}px` : '0';
+    renderer.domElement.style.top       = isM ? navHeightPx + 'px' : '0';
     renderer.domElement.style.left      = isM ? '50%'             : '0';
     renderer.domElement.style.transform = isM ? 'translateX(-50%)' : 'none';
     renderer.domElement.style.width     = isM ? '100%'            : '40%';
     renderer.domElement.style.height    = isM ? 'auto'            : '100%';
   });
 }
+

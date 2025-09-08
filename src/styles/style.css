@@ -7,7 +7,7 @@
 
 @font-face {
   font-family: 'font-titre';
-  src: url('/src/assets/fonts/ppneuemontreal-semibolditalic.woff') format('woff');
+  src: url('/src/assets/fonts/PPMori-SemiBold.otf') format('woff');
   font-weight: 500;
   font-style: normal;
 }
@@ -23,10 +23,7 @@ body {
   color: var(--text-color);
 }
 
-html, body {
-  height: 100vh;
-  overflow: hidden;
-}
+
 
 * {
   margin: 0;
@@ -51,7 +48,7 @@ body {
 .heure-actuelle,
 .nom,
 .portfolio {
-  font-size: 1rem;
+  font-size: 0.5rem;
 }
 
 /* Navbar desktop */
@@ -73,88 +70,117 @@ body {
   .heure-actuelle,
   .nom,
   .portfolio {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 }
 
-/* Conteneur principal */
-#app {
-  position: relative;
-  margin-top: 3rem;
-  height: calc(100vh - 3rem);
-  overflow: hidden;
+/* Split screen */
+.layout {
+  display: flex;
+  height: calc(100vh - 3rem); /* prend tout l'écran sauf navbar */
 }
 
-/* Liens verticaux */
-.liens-vertical {
-  position: absolute;
-  top: 40%;
-  left: calc(45% + 5rem);
-  transform: translateY(-50%);
+.content-left {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  justify-content: center;  /* centre verticalement */
+  align-items: center;      /* centre le bloc dans sa moitié */
+  padding: 1rem;
+  font-size: 3.5rem;
+  font-family: 'font-titre';
+}
+.content-left p {
+  color: gray;
+  font-size: 3rem;
 }
 
-.lien {
-  color: var(--text-color);
+.content-left > * {
+  width: clamp(320px, 70%, 720px); /* le bloc de texte a une vraie largeur */
+  text-align: left;                /* le texte dedans est aligné à gauche */
+}
+
+#app {
+  flex: 1; /* moitié droite pour la sphère */
+  position: relative;
+}
+
+
+.apropos {
+  background-color: #000;
+  color: #fff;
+  padding: 4rem 0; /* padding top/bottom, gauche/droite gérés par le wrapper */
+  width: 100%;
+}
+
+.apropos-inner {
+  max-width: 1200px;       /* limite la largeur totale */
+  margin: 0 auto;          /* centre horizontalement */
+
+}
+
+.apropos h1 {
+  font-family: 'font-titre';
+  font-size: 5.5rem;
+  margin-bottom: 5rem;
+  margin-left: 1rem;  /* garde le titre décalé */
+}
+
+.apropos-texte {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cartes par ligne */
+  gap: 2rem;                             /* plus d’espace entre les cartes */
+  justify-content: center;                /* centre la grille horizontalement */
+  margin-bottom: 2rem;
+}
+
+.card {
+  background-color: #111;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  font-size: 1.2rem;
+  color: #fff;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(255,255,255,0.4);
+}
+/* Carte spéciale pour le bouton */
+.btn-en-savoir-plus-card {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+.btn-en-savoir-plus-card .btn-en-savoir-plus {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  border-radius: 1rem;
+  background-color: #fff;
+  color: #000;
+  font-weight: bold;
   text-decoration: none;
-  font-family: 'font-titre', sans-serif;
-  font-weight: 500;
-  font-size: clamp(3rem, 8vw, 12rem);
-  text-align: left;
+  transition: 
+    background-color 0.3s,
+    color 0.3s,
+    transform 0.3s;
 }
 
-.liens-vertical .lien {
-  transition: transform 0.3s ease, filter 0.3s ease;
+/* Hover spécial bouton */
+.btn-en-savoir-plus-card .btn-en-savoir-plus:hover {
+  background-color: #333;
+  color: #fff;
+  transform: scale(1.05); /* léger zoom */
 }
 
-.liens-vertical:hover .lien:not(:hover) {
-  transform: scale(0.8);
+/* Désactive l’effet hover pour la card spéciale */
+.btn-en-savoir-plus-card:hover {
+  transform: none;
+  box-shadow: none;
 }
-
-.liens-vertical .lien:hover {
-  transform: scale(1.2);
-  filter: none;
-}
-
-/* Mobile (<600px) */
-@media (max-width: 599px) {
-  .liens-vertical {
-    position: absolute;
-    top: calc(100vw + 0.5rem);
-    left: 50%;
-    transform: translateX(-50%);
-    align-items: center;
-    gap: 3rem;
-    z-index: 1;
-  }
-
-  .lien {
-    font-size: clamp(2.5rem, 8vw, 6rem);
-    white-space: nowrap;
-  }
-}
-
-/* Mode sombre */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: #000000;
-    --text-color: #ffffff;
-  }
-  
-  body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-  }
-  
-  .barre-navigation,
-  .lien,
-  .nom,
-  .portfolio,
-  .heure-actuelle {
-    color: var(--text-color);
-  }
-}
-
-

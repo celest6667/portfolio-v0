@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <nav class="barre-navigation">
@@ -11,15 +12,38 @@
       <span class="nom">Célestin Petit</span>
       <span class="portfolio">Portfolio</span>
     </nav>
-    <div id="app">
-      <div class="liens-vertical">
-        <a href="#apropos" class="lien">À PROPOS</a>
-        <a href="#projets" class="lien">PROJETS</a>
-        <a href="#contact" class="lien">CONTACT</a>
+    <div class="layout">
+      <div class="content-left">
+        <h1>Bienvenue.</h1>
+        <p>Célestin Petit.</p>
+        <p>Développeur web.</p>
+        <p>Étudiant.</p>
       </div>
+      <div id="app"></div>
     </div>
+    <section class="apropos">
+      <div class="apropos-inner">
+        <h1>À propos.</h1>
+        <div class="apropos-texte">
+          <div class="card">Développeur web passionné</div>
+          <div class="card">Créateur d’expériences interactives</div>
+          <div class="card">Toujours en quête d’apprentissage</div>
+          <div class="card">Amoureux du design minimal</div>
+          <div class="card">Curieux des nouvelles technologies</div>
+          <div class="card">Esprit créatif et autonome</div>
+          <div class="card">Travail en équipe</div>
+          <div class="card">Résolution de problèmes</div>
+          <div class="card">Adaptabilité et persévérance</div>
+          <div class="card">Projets open source</div>
+          <div class="card">Expériences professionnelles</div>
+          <div class="card btn-en-savoir-plus-card">
+            <a href="apropos-detail.html" class="btn-en-savoir-plus">En savoir plus</a>
+          </div>
+        </div>
+        
+      </div>
+    </section>
     
     <script type="module" src="/src/js/main.js"></script>
-    
   </body>
 </html>
