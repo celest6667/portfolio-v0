@@ -131,7 +131,7 @@ body {
   grid-template-columns: repeat(3, 1fr); /* 3 cartes par ligne */
   gap: 2rem;                             /* plus d’espace entre les cartes */
   justify-content: center;                /* centre la grille horizontalement */
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 
 .card {
@@ -183,4 +183,208 @@ body {
 .btn-en-savoir-plus-card:hover {
   transform: none;
   box-shadow: none;
+}
+
+.projets {
+  background-color: #fff;
+  color: #000;
+  padding: 4rem 2rem;
+  width: 100%;
+}
+
+.projets h1 {
+  font-family: 'font-titre';
+  font-size: 5.5rem;
+  margin-bottom: 5rem;
+  margin-left: 6.8rem;
+}
+
+/* La grille */
+.projets-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+  grid-auto-rows: 200px; /* hauteur de base */
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 4rem;
+}
+
+/* Style de base des cartes */
+.projet-card {
+  background: #111;
+  border-radius: 1rem;
+  color: #fff;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.projet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+/* Variantes */
+.projet-card.wide {
+  grid-column: span 2; /* prend 2 colonnes */
+}
+
+.projet-card.tall {
+  grid-row: span 2; /* prend 2 lignes */
+}
+
+.projet-card.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* Badge rond pour accéder au projet */
+.projet-badge {
+  position: absolute; /* positionné par rapport à la carte */
+  top: 1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #fff;
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  transition: background-color 0.3s, transform 0.3s, color 0.3s;
+  z-index: 2;
+}
+
+.projet-badge:hover {
+  background-color: #333;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Animation fade-in et soulignement */
+.projet-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.projet-card span {
+  position: relative;
+  font-family: 'font-texte';
+  
+  font-size: 1.6rem;
+  display: inline-block;
+  color: #fff;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Soulignement animé */
+.projet-card span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  transition: width 0.4s ease;
+}
+
+.projet-card:hover span::after {
+  width: 100%;
+}
+
+/* Animation d'apparition */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.sphere-card {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+.sphere-card span,
+.sphere-card .projet-badge {
+  display: none; /* supprime le texte & le badge si jamais */
+}
+
+.contact {
+  background-color: #0a0a0a; /* légèrement plus sombre que le noir pur */
+  color: #fff;
+  padding: 4rem 0;
+  width: 100%;
+}
+
+.contact-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+  padding-left: 2rem;
+}
+
+.contact h1 {
+  font-family: 'font-titre';
+  font-size: 5.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+/* Ligne décorative sous le titre */
+.contact h1::after {
+  content: '';
+  display: block;
+  width: 5rem;
+  height: 3px;
+  background: #fff;
+  margin-top: 1rem;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-size: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contact-item .icon {
+  width: 2rem;
+  height: 2rem;
+  filter: invert(1); /* icône blanche */
+}
+
+.contact-item a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.contact-item a:hover {
+  color: #1db954; /* petite touche de couleur */
+  transform: translateX(3px);
 }

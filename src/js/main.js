@@ -1,5 +1,7 @@
 import '../styles/style.css';
 import { initSphere } from './three/sphere.js';
+import { initSphere2 } from './three/sphere2.js';
+
 
 const heureEl = document.querySelector('.heure-actuelle');
 
@@ -11,8 +13,11 @@ function mettreAJourHeure() {
   heureEl.textContent = `${heures}:${minutes}:${secondes}`;
 }
 
+
+
 mettreAJourHeure();
 setInterval(mettreAJourHeure, 1000);
 
 initSphere();
+initSphere2();
 
