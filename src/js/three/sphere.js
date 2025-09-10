@@ -224,22 +224,39 @@ const mat = new THREE.ShaderMaterial({
   }
   animate();
 
-  // Adaptation au resize
   window.addEventListener('resize', () => {
     const isM = window.innerWidth < 600;
-    const w   = isM ? window.innerWidth : window.innerWidth * 0.4;
-    const h   = isM
-      ? window.innerWidth
-      : window.innerHeight - navHeightPx;
-
+    const isT = window.innerWidth >= 600 && window.innerWidth <= 1024;
+  
+    let w, h;
+  
+    if (isM) {
+      w = window.innerWidth;
+      h = 300; // hauteur fixe plus petite sur mobile
+    } else if (isT) {
+      w = window.innerWidth * 0.35; // un peu plus petit que desktop
+      h = window.innerHeight - navHeightPx;
+    } else {
+      w = window.innerWidth * 0.4;
+      h = window.innerHeight - navHeightPx;
+    }
+  
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
     renderer.setSize(w, h);
-    renderer.domElement.style.top       = isM ? navHeightPx + 'px' : '0';
-    renderer.domElement.style.left      = isM ? '50%'             : '0';
-    renderer.domElement.style.transform = isM ? 'translateX(-50%)' : 'none';
-    renderer.domElement.style.width     = isM ? '100%'            : '40%';
-    renderer.domElement.style.height    = isM ? 'auto'            : '100%';
+  
+    // centrage mobile
+    if (isM) {
+      renderer.domElement.style.position = "relative";
+      renderer.domElement.style.top = "0";       // ou un petit margin-top si tu veux descendre un peu
+      renderer.domElement.style.left = "0";      // alignement à gauche
+      renderer.domElement.style.transform = "none"; // plus besoin de translate
+    } else {
+      renderer.domElement.style.position = "absolute";
+      renderer.domElement.style.top = "50%";
+      renderer.domElement.style.left = "50%";
+      renderer.domElement.style.transform = "translate(-50%, -50%)";
+    }
   });
 }
 

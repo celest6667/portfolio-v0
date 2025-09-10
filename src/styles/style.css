@@ -106,6 +106,8 @@ body {
 }
 
 
+
+
 .apropos {
   background-color: #000;
   color: #fff;
@@ -328,63 +330,67 @@ body {
   display: none; /* supprime le texte & le badge si jamais */
 }
 
-.contact {
-  background-color: #0a0a0a; /* légèrement plus sombre que le noir pur */
+.footer {
+  background-color: #0a0a0a;
   color: #fff;
-  padding: 4rem 0;
-  width: 100%;
+  padding: 2rem 0;
+  font-size: 1rem;
 }
 
-.contact-inner {
+.footer-inner {
   max-width: 1200px;
   margin: 0 auto;
-  text-align: left;
-  padding-left: 2rem;
-}
-
-.contact h1 {
-  font-family: 'font-titre';
-  font-size: 5.5rem;
-  margin-bottom: 3rem;
-  position: relative;
-}
-
-/* Ligne décorative sous le titre */
-.contact h1::after {
-  content: '';
-  display: block;
-  width: 5rem;
-  height: 3px;
-  background: #fff;
-  margin-top: 1rem;
-}
-
-.contact-list {
+  padding: 0 2rem;
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  font-size: 1.5rem;
-}
-
-.contact-item {
-  display: flex;
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
-.contact-item .icon {
-  width: 2rem;
-  height: 2rem;
-  filter: invert(1); /* icône blanche */
+.footer-name {
+  color: gray;
+  font-size: 0.9rem;
 }
 
-.contact-item a {
+.footer-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.footer-links a {
   color: #fff;
   text-decoration: none;
-  transition: color 0.3s, transform 0.3s;
+  transition: color 0.3s;
 }
 
-.contact-item a:hover {
-  color: #1db954; /* petite touche de couleur */
-  transform: translateX(3px);
+
+/* Animation fadeInUp */
+@keyframes fadeInUpHover {
+  from {
+    opacity: 0.8;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+/* Bouton LinkedIn */
+.linkedin-btn {
+  background-color: #fff;
+  color: #000 !important;
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.linkedin-btn:hover {
+  background-color: #333;
+  color: #fff !important;
+  animation: fadeInUpHover 0.3s ease forwards;
 }

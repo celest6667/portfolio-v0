@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Version Mobile</title>
+<style>
+    @font-face {
+        font-family: 'font-texte';
+        src: url('/src/assets/fonts/ppneuemontreal-book.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'font-titre';
+        src: url('/src/assets/fonts/PPMori-SemiBold.otf') format('woff');
+        font-weight: 500;
+        font-style: normal;
+    }
+
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* Empêche débordement horizontal */
+        font-family: 'font-texte';
+    }
+
+    .barre-navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background-color: #fff;
+    }
+
+    .heure-actuelle, .nom, .portfolio {
+        font-size: 1rem;
+    }
+
+    .accueil-mobile {
+        width: 100%;
+        padding: 2rem 1rem;
+    }
+
+    .accueil-mobile h1 {
+        font-size: 4rem;
+        font-family: 'font-titre';
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .accueil-mobile p {
+        font-size: 1.8rem;
+        margin: 0.5rem 0;
+        color: gray;
+    }
+
+    .apropos-mobile {
+        width: 100%;
+        padding: 2rem 1rem;
+        background-color: black;
+        color: white;
+    }
+
+    .titre-apropos {
+        font-size: 4rem;
+        font-family: 'font-titre';
+        margin: 0 0 2rem 0;
+        width: 100%;
+    }
+
+    .apropos-cartes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* espace entre les cartes */
+    justify-content: space-between;
+}
+
+.card {
+    flex: 1 1 calc(50% - 0.5rem); /* prend 50% moins la moitié du gap */
+    background-color: #111;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-size: 1.2rem;
+    color: #fff;
+    text-align: center;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 15px rgba(255,255,255,0.4);
+    }
+
+    /* Carte spéciale pour le bouton */
+    .btn-en-savoir-plus-card {
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .btn-en-savoir-plus-card .btn-en-savoir-plus {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+        border-radius: 1rem;
+        background-color: #fff;
+        color: #000;
+        font-weight: bold;
+        text-decoration: none;
+        transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    }
+
+    .btn-en-savoir-plus-card .btn-en-savoir-plus:hover {
+        background-color: #333;
+        color: #fff;
+        transform: scale(1.05);
+    }
+
+    .btn-en-savoir-plus-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+</style>
+</head>
+<body>
+    <nav class="barre-navigation">
+        <span class="heure-actuelle"></span>
+        <span class="nom">Célestin Petit</span>
+        <span class="portfolio">Portfolio</span>
+    </nav>
+
+    <div class="accueil-mobile">
+        <h1 class="titre-full">Bienvenue.</h1>
+        <div class="sous-titres">
+            <p>Célestin Petit.</p>
+            <p>Développeur web.</p>
+            <p>Étudiant.</p>
+        </div>
+    </div>
+
+    <div class="apropos-mobile">
+        <h1 class="titre-apropos">À propos.</h1>
+        <div class="apropos-cartes">
+            <div class="card">Célestin Petit</div>
+            <div class="card">Étudiant web</div>
+            <div class="card">Passion front-end</div>
+            <div class="card">Recherche alternance</div>
+            <div class="card">Mode StreetWear</div>
+            <div class="card">Créatif</div>
+            <div class="card">Curieux</div>
+            <div class="card">Esprit d’équipe</div>
+            <div class="card">Autonome</div>
+            <div class="card">Persévérant</div>
+            <div class="card">Sens du design Web</div>
+            <div class="card btn-en-savoir-plus-card">
+                <a href="apropos-detail.html" class="btn-en-savoir-plus">En savoir plus</a>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        import { initHeure } from "/src/js/mainMobile.js";
+        initHeure();
+    </script>
+</body>
+</html>
