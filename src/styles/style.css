@@ -560,26 +560,3 @@ body {
   max-width: 80%;
   margin-bottom: 2rem;
 }
-
-.rap-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-  gap: 1rem; /* pas d’espace entre */
-  max-width: 1000px;
-  margin: 2rem auto; /* centré */
-  border-radius: 1rem;
-}
-
-.rap-grid img {
-  width: 100%;
-  height: 200px;       /* plus haute que large */
-  object-fit: cover;   /* garde la bonne proportion */
-  display: block;
-  cursor: pointer;
-  transition: transform 0.3s;
-  border-radius: 1rem;
-}
-
-.rap-grid img:hover {
-  transform: scale(1.05);
-}
