@@ -13,7 +13,14 @@ function mettreAJourHeure() {
   heureEl.textContent = `${heures}:${minutes}:${secondes}`;
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
+  if (isMobile) {
+    // Redirige vers le site mobile complet
+    window.location.href = "https://portfolio-v0-mobile.vercel.app";
+  }
+});
 
 
 mettreAJourHeure();
