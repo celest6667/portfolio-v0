@@ -1,4 +1,4 @@
-// main.js - redirection mobile/desktop et horloge
+// main.js - redirection mobile/desktop et horloe
 import './styles/style.css'; // chemin relatif, pas de / au début
 import { initSphere } from './src/js/three/sphere.js';
 import { initSphere2 } from './src/js/three/sphere2.js';
