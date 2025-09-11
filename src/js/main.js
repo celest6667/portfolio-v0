@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
 mettreAJourHeure();
 setInterval(mettreAJourHeure, 1000);
 
