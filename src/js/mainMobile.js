@@ -13,3 +13,12 @@ export function initHeure() {
     mettreAJourHeure();
     setInterval(mettreAJourHeure, 1000);
   }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+  if (isMobile) {
+    window.location.href = "mobile.html"; // redirection vers la version mobile
+  }
+});
