@@ -13,6 +13,13 @@ function mettreAJourHeure() {
   heureEl.textContent = `${heures}:${minutes}:${secondes}`;
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+  if (isMobile) {
+    window.location.href = "mobile.html"; // redirection vers la version mobile
+  }
+});
 
 
 mettreAJourHeure();
