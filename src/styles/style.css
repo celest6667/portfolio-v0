@@ -23,8 +23,6 @@ body {
   color: var(--text-color);
 }
 
-
-
 * {
   margin: 0;
   padding: 0;
@@ -35,7 +33,7 @@ body {
   font-family: 'font-texte', sans-serif;
 }
 
-/*Page d'accueil */
+/* Page d'accueil */
 
 /* Navbar */
 .barre-navigation {
@@ -90,6 +88,7 @@ body {
   font-size: 3.5rem;
   font-family: 'font-titre';
 }
+
 .content-left p {
   color: gray;
   font-size: 3rem;
@@ -105,9 +104,6 @@ body {
   position: relative;
 }
 
-
-
-
 .apropos {
   background-color: #000;
   color: #fff;
@@ -118,7 +114,6 @@ body {
 .apropos-inner {
   max-width: 1200px;       /* limite la largeur totale */
   margin: 0 auto;          /* centre horizontalement */
-
 }
 
 .apropos h1 {
@@ -132,7 +127,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 cartes par ligne */
   gap: 2rem;                             /* plus d’espace entre les cartes */
-  justify-content: center;                /* centre la grille horizontalement */
+  justify-content: center;               /* centre la grille horizontalement */
   margin-bottom: 4rem;
 }
 
@@ -151,6 +146,7 @@ body {
   transform: translateY(-5px);
   box-shadow: 0 0 15px rgba(255,255,255,0.4);
 }
+
 /* Carte spéciale pour le bouton */
 .btn-en-savoir-plus-card {
   background: transparent;
@@ -281,7 +277,6 @@ body {
 .projet-card span {
   position: relative;
   font-family: 'font-texte';
-  
   font-size: 1.6rem;
   display: inline-block;
   color: #fff;
@@ -315,7 +310,6 @@ body {
     transform: translateY(0);
   }
 }
-
 
 .sphere-card {
   background: none !important;
@@ -364,7 +358,6 @@ body {
   text-decoration: none;
   transition: color 0.3s;
 }
-
 
 /* Animation fadeInUp */
 @keyframes fadeInUpHover {
@@ -428,13 +421,14 @@ body {
   color: #333;
 }
 
+/* ===== COMPÉTENCES ===== */
+
 .competences {
   background-color: #000;
   color: #fff;
   padding: 4rem 2rem;
   font-family: 'font-texte';
   margin-bottom: 4rem;
-
 }
 
 .competences h1 {
@@ -442,6 +436,7 @@ body {
   font-size: 5.5rem;
   margin-bottom: 4rem;
 }
+
 .competences h2 {
   font-family: 'font-titre';
   font-size: 2.5rem;
@@ -459,10 +454,13 @@ body {
 
 .competence-card {
   background: #111;
-  padding: 1rem 2rem;
+  padding: 1.2rem 1.5rem;
   border-radius: 1rem;
   flex: 1 1 calc(33% - 2rem);
   transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .competence-card:hover {
@@ -470,31 +468,38 @@ body {
   box-shadow: 0 0 10px #fff;
 }
 
-.competence-card span {
+.competence-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.competence-name {
   font-size: 1.2rem;
-  display: block;
-  margin-bottom: 0.5rem;
 }
 
-.bar {
-  width: 100%;
-  height: 0.8rem;
-  background: #333;
-  border-radius: 0.5rem;
-  overflow: hidden;
+.competence-level {
+  font-size: 0.9rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid #fff;
 }
 
-.fill {
-  height: 100%;
-  background: #fff;
-  width: 0;
-  transition: width 1s ease-in-out;
+/* Variants de niveau */
+.niveau-a-laise {
+  opacity: 1;
 }
 
-/* On peut déclencher l'animation de la barre dès le chargement */
-.competence-card .fill {
-  width: inherit;
+.niveau-en-cours {
+  opacity: 0.8;
 }
+
+.niveau-bases {
+  opacity: 0.6;
+}
+
+/* ===== HOBBIES ===== */
 
 .hobbies {
   background-color: #fff;
